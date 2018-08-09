@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <!-- You missed importing jQuery, this is needed for not only doing some fun things in javascript, but also for bootstrap to work -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+     <!-- bootstrap cdn-->
+     <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="index.css">
+
+
+    <title> Tuition Fee Calculator</title>
+    <!--<meta charset="windows-1252">
+    <meta name="viewport" content="width=device-width, initial-sacel=1.0"> -->
+    <script src="./index.js"></script>
+    </head>
+        <body>
+            <table>
+                <!-- //tr makes new row in table
+                td makes you add info// -->
+                <tr> 
+                    <td><h1>2018/19 Academic Year Tuition and Fees for One Undergraduate Course (3 Credit Hours)</h1></td>
+                </tr>
+                <tr>
+                    <th>One Course (3 Credit Hours)</th>
+                    <th>Newfoundland and Labrador Students</th>
+                    <th>Other Canadian Students</th>
+                    <th>International Students</th>
+                </tr>
+                <tr>
+                    <td>Tuition</td>
+                    <td>$255.00</td>
+                    <td>$333.00</td>
+                    <td>$1,146.00</td>
+
+                </tr>
+                <tr>
+                    <td>Distance Education Administrative Fee *</td>
+                    <td>$51.00</td>
+                    <td>$102.00</td>
+                    <td>$102.00</td>
+
+                </tr>
+                <tr>
+                    <td>Campus Renewal Fee **</td>
+                    <td>$50.00</td>
+                    <td>$50.00</td>
+                    <td>$50.00</td>
+
+                </tr>
+                <tr>
+                    <td>Student Services Fee **</td>
+                    <td>$50.00</td>
+                    <td>$50.00</td>
+                    <td>$50.00</td>
+
+                </tr>
+                <tr>
+                    <td>Student Union ***</td>
+                    <td>$20.23</td>
+                    <td>$20.23</td>
+                    <td>$20.23</td>
+
+                </tr>
+                <tr>
+                    <td>Canadian Federation of Students - Provincial**</td>
+                    <td>$4.57</td>
+                    <td>$4.57</td>
+                    <td>$4.57</td>
+
+                </tr>
+                <tr>
+                    <td>Canadian Federation of Students - Federal**</td>
+                    <td>$4.57</td>
+                    <td>$4.57</td>
+                    <td>$4.57</td>
+
+                </tr>
+                <tr>
+                    <td>Media Fee **</td>
+                    <td>$4.00</td>
+                    <td>$4.00</td>
+                    <td>$4.00</td>
+
+                </tr>
+                <tr>
+                    <td><b>Total</b></td>
+                    <td><b>$439.37</b></td>
+                    <td><b>$568.37</b></td>
+                    <td><b>$1,381.37</b></td>
+
+                </tr>
+                
+                
+            
+            </table>
+            <br>
+            
+            <hr>
+            
+            
+            
+            
+            <b>This calculator is only for Undergraduates -St John's Campus Fees :</b>
+            <form>
+            
+                
+                Are you a Full time or Part time student? 
+                <select id="studentType" onchange="calculator()">
+                    <option></option>
+                    <option value="fullTime">Full</option>
+                    <option value="partTime">Part</option>
+                </select>
+                <br>
+                How many courses do you need to complete for your degree? 
+                
+                    <input type="number" id="courseNum" onchange="calculator()"><br>
+                    <!--<input type="submit" value="Submit"><br>-->
+                
+                
+                <br><b>How many semesters do you plan to do to complete the degree</b></br>
+                
+                Fall (September - December)
+                
+                    <input type="number" id="fall" onchange="calculator()"><br>
+                <br />    
+                Winter (Jan - April)
+                
+                    <input type="number" step="1" id="winter" onchange="calculator()"><br>
+                   <!-- <input type="submit" value="Submit"><br>-->
+                
+                <br />
+                Spring (May - August)
+                
+                <input type="number" step="1" id="spring" onchange="calculator()"><br>
+                
+                <br>
+                <br>
+                Where do you currenlty reside
+                <select id="currentresident" onchange="calculator()">
+                    <option value="newfoundland">Newfoundland and labrador</option>
+                    <option value="canada">Canada (Not Newfoundland and Labrador)</option>
+                    <option value="Outside">Outside of Canada</option>
+                </select>
+                <br>
+                <br>
+                Will you be opting into the Health Plan
+                <select id="healthplan" onchange="calculator()">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <!-- This only applies to canada and Newfoundland students, for international students it is different 
+                    <br>
+                Will you be opting into the Health Plan
+                <select id="coursenum1" onchange="calculator()">
+                    <option>Please Discuss with Internationalization Office</option>
+                </select>-->
+                </select>
+                <br>
+                Will you be opting into the Dental Plan
+                <select id="dentalplan" onchange="calculator()">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <!-- for international students:  
+                    <option>Please Discuss with Internationalization Office</option> -->
+                </select>
+                <br>
+                Will you be opting into the Campus Recreation Fee
+                <select id="recreationfee" onchange="calculator()">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+                
+                <br>
+                <h3>Course Based Fees</h3>
+                <br>
+                Tuition <span id="tuitionTotal">$0.00</span>
+                <br>
+                Distance Education Fee <span id="distanceEdTotal">$0.00</span>
+                <br>
+                Campus Renewal Fee <span id="campusRenewalTotal">$0.00</span>
+                <br>
+                <h3> Subtotal: <span id="courseSubtotal">$0.00</span></h3>
+                
+            
+                <h3>Semester Based Fees</h3>
+                <br>
+                Student Services Fee <span id="stuServicesFee">0.00</span>
+                
+                
+                <br>
+                Student Union <span id="stuUnion">0.00</span>
+                
+                <br>
+                Canadian Federation of Students - Provincial  
+                (Not charged in Spring Semester) <span id="cadProv">0.00</span>
+                
+                <br>
+                Canadian Federation of Students - Federal  
+                (Not charged in Spring Semester)<span id="cadFed">0.00</span>
+                
+                <br>
+                Media Fees <span id="mediaFee">0.00</span>
+                
+                <br>
+                <h3> Subtotal: <span id="semSubtotal">$0.00</span></h3>
+                
+            
+                <h3>Optional Fees</h3>
+                <br>
+                Student Health Plan <span id="stuHealth">0.00</span>
+                
+                <br>
+                Student Dental Plan <span id="stuDental">0.00</span>
+                
+                <br>
+                Recreational Fee <span id="Recreationfee">0.00</span>
+                
+                <br>
+                <h3> Subtotal <span id="optionalSubtotal">$0.00</span></h3>
+                
+            
+                <table>
+                    <tr> 
+                    <td><h2>Total Fees</h2></td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th>Subtotals</th>
+                </tr>
+                <tr>
+                    <td>Course Based Fees</td>
+                    <td><span id="courseSubtotal2">$0.00</span></h3></td>
+                    
+                </tr>
+                <tr>
+                    <td>Semester Based Fees</td>
+                    <td><span id="semSubtotal2">$0.00</span></td>
+                    
+                </tr>
+                <tr>
+                    <td>Optional Fees</td>
+                    <td><span id="optionalSubtotal2">$0.00</span></td>
+                    
+                </tr>
+                    <tr>
+                    <td>Total</td>
+                    <td><span id="total">$0.00</span></td>
+                    
+                </tr>
+                </table>
+            
+                <br>
+                <b><H2>Important Notes:</H2></b>
+                1. These fees are based on the 2018/19 University Calendar and are subject to change
+                <br>
+                2. Tuition costs are based on 3-Credit hour courses
+                <br>
+                3. International students are not eligible for health and dental coverage - need to discuss with Internationalization Office
+                <br>
+                4. Fees do not include books and other misc. course based requirements
+                <br>
+                5. for more information on fees, visit <a href="https://www.mun.ca/finance/fees/">here:</a>
+            </form>
+
+        </body>
+</html>
